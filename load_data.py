@@ -4,7 +4,7 @@ import pandas as pd
 
 from utils import log_inout
 
-TRAIN_DATA = "data/train.csv"
+TRAIN_DATA = "data/anime.csv"
 TEST_DATA = "data/test.csv"
 
 logger = getLogger("Log").getChild(__name__)
@@ -19,6 +19,7 @@ def read_csv(path):
 @log_inout
 def load_train_data():
     df = read_csv(TRAIN_DATA)
+    df = df.dropna(subset=['genre'])
     return df
 
 
